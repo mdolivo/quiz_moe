@@ -44,6 +44,12 @@ if (app.get('env') === 'development') {
     });
 }
 
+//layout
+/*app.get('/', function(req,res,next){
+	res.render('index.ejs');
+})*/
+
+
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
