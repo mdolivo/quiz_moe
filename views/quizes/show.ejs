@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+    <title>MOE Quiz</title>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/style.css' />
+	<link rel='stylesheet' 
+	type="teext/css" 
+	media="only screen and (min-width:530px and (min-device-width:481px)"
+	href="/stylesheet/wide.css"/>
+	<link rel='stylesheet' 
+	type="text/css" 
+	media="only screen and (max-width:480px)"
+	href="/stylesheet/smartphone.css"/>
+  </head>
+  
+  <body>
+	<h2><p>Bienvenido a Quiz Miriada X:</p></h2>
+	<p>El portal donde puedes crear tus propios juegos!!!</p>
+	
+	<div id="page-wrap">
+	<header class="main" id="h1">
+		<h2>Quiz<span>: El juego de las preguntas</span></h2>
+	</header>
+	<nav class="main" id="n1" role="navigation">
+		<span><a href="/">Vonver al inicio</a></span>
+	</nav>
+	
+	<section class="main" id="sl">
+		<center><h3>Pregunta:</h3></center> 
+		<table>
+			<form method="GET" action="/quizes/<%= quiz.id%>/answer">
+			<%= quiz.pregunta%>
+			<p>
+			<input type="text" name="respuesta" value="Responda aquí"/>
+			<input type="submit" value="Enviar"/>
+			</form>
+		</table>
+	</section>
+
+	</section>
+	</div>
+  </body>
+</html>

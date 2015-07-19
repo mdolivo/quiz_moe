@@ -1,0 +1,47 @@
+body {
+	margin:0;
+	padding: 20px;
+	font: 16px Georgia, serif;
+}
+
+#page-wrap{
+	margin: 2% auto;
+	color:white;
+}
+#page-wrap > .main {
+	border: 1px solid #999;
+	padding: 1%;
+	margin-bottom: 1px;
+	color:black;
+}
+
+section > div {
+	padding:20px;
+}
+
+header, nav, section{
+	background:#eee;
+	text-align:center;
+}
+
+footer{
+	background:#eee;
+	text-align:left;
+	padding:20px;
+}
+
+nav span{
+	margin:0px 10px 0px 0px;
+}
+
+a ,h6, h5{
+  color: #00B7FF;
+  text-align:left;
+   padding:10px;
+  {
+ 
+}
+h3{
+  padding:20px;
+  text-align:left;
+}
