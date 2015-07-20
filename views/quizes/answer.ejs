@@ -15,9 +15,10 @@
   </head>
   
   <body>
+  <center>
 	<h2><p>Bienvenido a Quiz Miriada X:</p></h2>
 	<p>El portal donde puedes crear tus propios juegos!!!</p>
-	
+	<center>
 	<div id="page-wrap">
 	<header class="main" id="h1">
 		<h2>Quiz<span>: El juego de las preguntas</span></h2>
@@ -28,7 +29,7 @@
 	
 	<section class="main" id="sl">
 		<center><h3>Respuesta:</h3></center> 
-		<form action="/quizes/<%= quiz.id %>">
+		<form action="/quizes/show">
 			<%= respuesta %><br></p>
 			<input type="submit" name="botonOtraVez" value="Intente otra vez"/>
 		</form>

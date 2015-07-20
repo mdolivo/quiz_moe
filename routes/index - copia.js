@@ -9,8 +9,9 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz Miriada X' });
 });
 
-router.get('/quizes/show', quizController.show);
-router.get('/quizes/answer', quizController.answer);
+router.get('/quizes', quizController.index);
+router.get('/quizes/:quizId(\\d+)', quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 router.get('/creditos/autor', author.autor);
 
 module.exports = router;
