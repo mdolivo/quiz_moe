@@ -4,7 +4,6 @@ body {
 	font: 16px Georgia, serif;
 	margin-left:60px;
 	margin-right;60px;
-	
 }
 
 #page-wrap{
@@ -18,32 +17,39 @@ body {
 	color:black;
 }
 
-section > div {
+section {
 	padding:15px;
+	margin:0px 100px 0px 100px;
+}
+
+div{
+	margin:0px 100px 0px 100px;
 }
 
 header, nav, section{
 	background:#eee;
 	text-align:center;
+	margin:0px 100px 0px 100px;
 }
 
 footer{
+	border: 1px solid #999;
 	background:#eee;
 	text-align:left;
-	padding:10px;
+	padding:5px;
+	margin:0px 100px 0px 100px;
 }
 
-nav span{
-	margin:0px 10px 0px 0px;
+nav, span{
+	margin:0px 100px 0px 100px;
 }
 
 a ,h6, h5{
   color: #00B7FF;
   text-align:left;
-   padding:10px;
+  padding:10px;
   {
- 
-}
+
 h3{
   padding:20px;
   text-align:left;
