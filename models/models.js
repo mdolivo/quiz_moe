@@ -12,6 +12,7 @@ var host     = (url[4]||null);
 var storage  = process.env.DATABASE_STORAGE;
 
 var Sequelize = require('sequelize');
+
 var sequelize = new Sequelize(DB_name, user, pwd, 
   { dialect:  protocol,
     protocol: protocol,
@@ -22,7 +23,9 @@ var sequelize = new Sequelize(DB_name, user, pwd,
   }      
 );
 
-var Quiz = sequelize.import(path.join(__dirname,'quiz'));
+var quiz_path = path.join(__dirname,'quiz');
+var Quiz = sequelize.import(quiz_path);
+
 exports.Quiz = Quiz; 
 
 sequelize.sync().then(function(){
@@ -30,6 +33,9 @@ sequelize.sync().then(function(){
 	if(count===0){
 		Quiz.create({pregunta: 'Capital de Italia',
 					 respuesta: 'Roma'
+					 })
+		Quiz.create({pregunta: 'Capital de Venezuela',
+					 respuesta: 'Caracas'
 					 })
 	.then(function(){console.log('Base de datos quiz inicializa')});
 	};

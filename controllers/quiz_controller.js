@@ -1,23 +1,29 @@
 var models = require('../models/models.js');
 
-//GET/quizes/show
+//GET/quizes/
+exports.index= function(req,res){
+		models.Quiz.findAll().then(function(quizes){
+		res.render('quizes/index',{quizes:quizes});
+	})
+};
+
+//GET/quizes/:Id
 exports.show= function(req,res){
-	models.Quiz.findAll().then(function(quiz){
-		res.render('quizes/show',{pregunta:quiz[0].pregunta})
+		models.Quiz.find(req.params.quizId).then(function(quiz){
+		res.render('quizes/show',{quiz: quiz});
 	})
 };
 
-//GET/quizes/answer
+//GET/quizes/:id/answer
 exports.answer= function(req,res){
-	models.Quiz.findAll().then(function(quiz){
-		if(req.query.respuesta === quiz[0].respuesta){
-			res.render('quizes/answer',
-			{respuesta:'Su respuesta es correcta'});
-		}else{
-			res.render('quizes/answer',
-			{respuesta: 'Su respuesta es incorrecta,verifique mayúsculas y miúsculas'});
-		}
+	models.Quiz.find(req.params.quizId).then(function(quiz){
+	if(req.query.respuesta ===quiz.respuesta){
+		res.render('quizes/answer',
+			{quiz: quiz, respuesta:'Su respuesta es correcta'});
+	}else{
+		res.render('quizes/answer',
+			{quiz: quiz, respuesta: 'Su respuesta es incorrecta,verifique mayúsculas y miúsculas'});
+	}
 	})
 };
-
 
