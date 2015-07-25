@@ -37,7 +37,7 @@ exports.preguntas= function(req,res){
 		var buscar= req.params.buscar;
 		if(buscar){
 			var texto=(req.params.buscar || '').replace(" ", "%");
-			models.Quiz.findAll({where:["pregunta like ?", '%'+texto+'%'],order:'pregunta ASC'}).then(function(quizes){
+			models.Quiz.findAll({where:["pregunta like ?", '%'+texto+'%']/*,order:'pregunta ASC'*/}).then(function(quizes){
 			res.render('busqueda/preguntas', {quizes: quizes});
 			}).catch(function(error) { next(error);});
 		}else {

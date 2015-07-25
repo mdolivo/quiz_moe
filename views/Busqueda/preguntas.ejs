@@ -23,7 +23,11 @@
 	</header>
 	
 	<section class="main" id="s1">
-	<%= quizes.pregunta %><p>
+	<% var i; for (i=0; i < quizes.length; i++) { %>        
+    <tr>
+      	<%= quizes.pregunta %><p>
+    </tr> 
+	<% } %>
 	</section>
 	<footer>
 		<a href="/">Regresar</a>
