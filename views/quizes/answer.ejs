@@ -4,8 +4,8 @@
 	<meta charset="utf-8">
     <title>MOE Quiz</title>
     <link rel='stylesheet' type='text/css' href='/stylesheets/style.css' />
-  </head>
-  <body>
+</head>
+ <body>
   <center>
      <p>
 	 <h2>
@@ -25,9 +25,8 @@
 	</nav>
 	
 	<section class="main" id="sl">
-		<h3>Respuesta:</h3>
-		<form method="GET" action="/quizes/<%= quiz.id %>">
-			<%= respuesta%><p>
+		<h4><%= respuesta%><p></h4>
+		<form method="GET" action="/quizes/<%= quiz.id %>" >
 			<input type="submit" name="botonOtraVez" value="Intente otra vez"/>
 		</form>
 	</section>

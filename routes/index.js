@@ -2,8 +2,6 @@ var express = require('express');
 var router = express.Router();
 var quizController = require('../controllers/quiz_controller');
 var author= require('../views/creditos/autor');
-var buscarP= require('../views/busqueda/buscar');
-
 
 //Pagina de entrada ( home page)
 router.get('/', function(req, res) {
@@ -17,6 +15,8 @@ router.get('/quizes/:quizId(\\d+)', quizController.show);
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 router.get('/creditos/autor', author.autor);
 router.get('/busqueda/buscar', quizController.buscar);
+router.get('/busqueda/preguntas', quizController.preguntas);
+
 
 module.exports = router;
 
