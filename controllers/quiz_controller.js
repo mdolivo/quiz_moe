@@ -27,3 +27,6 @@ exports.answer= function(req,res){
 	})
 };
 
+exports.buscar= function(req,res){
+		res.render('busqueda/buscar');
+};
