@@ -8,14 +8,14 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Quiz Miriada X' });
 });
 
-//router.param('quizId',quizController.load); //autoload:quizId
+router.param('quizId',quizController.load); //autoload:quizId
 
 router.get('/quizes', quizController.index);
 router.get('/quizes/:quizId(\\d+)', quizController.show);
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 router.get('/creditos/autor', author.autor);
-router.get('/busqueda/buscar', quizController.buscar);
-router.get('/busqueda/preguntas', quizController.preguntas);
+router.get('/Busqueda/buscar', quizController.buscar);
+router.get('/Busqueda/preguntas', quizController.preguntas);
 
 
 module.exports = router;
