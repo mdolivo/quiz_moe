@@ -23,17 +23,14 @@
 	</header>
 	
 	<section class="main" id="s1">	   
-	<% var i; for (i=0; i < quizes.length; i++) { %>        
+		<% var i; for (i=0; i < quizes.length; i++) { %>        
     <tr>
-      	<%= quizes[i].pregunta %><p>
+      	<a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %><p>
     </tr> 
 	<% } %>
 	</section>
 	<footer>
 		<a href="/">Regresar</a>
 	</footer>
-
-	</section>
-	
   </body>
 </html>

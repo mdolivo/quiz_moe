@@ -14,10 +14,15 @@ exports.load = function(req, res, next, quizId){
 		).catch(function(error){next(error);});
 };
 
+//GET/credito/autor
+exports.autor= function(req,res){
+	res.render('creditos/autor');
+};
+
 //GET/quizes/
 exports.index= function(req,res){
 		models.Quiz.findAll().then(function(quizes){
-		res.render('quizes/index.ejs', {quizes: quizes});
+		res.render('Busqueda/lista', {quizes: quizes});
 	})
 };
 
@@ -27,6 +32,8 @@ exports.show= function(req,res){
 		res.render('quizes/show',{quiz: req.quiz});
 	})
 };
+
+
 
 //GET/quizes/:id/answer
 exports.answer= function(req,res){
@@ -41,13 +48,13 @@ exports.answer= function(req,res){
 	})
 };
 
-//GET/busqueda/buscar_p
+//GET/Busqueda/buscar_p
 exports.buscar= function(req,res){
 	res.render('Busqueda/buscar_p');
 };
 
 
-//GET/busqueda/buscar
+//GET/Busqueda/buscar
 exports.preguntas= function(req,res){
 		var buscar= req.params.buscar;
 		if(buscar){
@@ -63,7 +70,10 @@ exports.preguntas= function(req,res){
 };
 
 
-
-
-
+//GET/Busqueda/lista
+/*exports.lista = function(req, res) {
+	models.Quiz.findAll().then(function(quizes){
+		res.render('Busqueda/lista', {quizes: quizes});
+	})
+};*/
 
