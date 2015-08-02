@@ -96,3 +96,20 @@ exports.crear = function(req, res) {
         .then(function() {res.redirect('/quizes')});
      } 	
  };
+ 
+ //DELETE / quiz/:id
+exports.borrar = function(req, res) {
+  req.quiz.destroy().then(function() {res.redirect('/quizes')}
+  ).catch(function(error){next(error)});
+};
+
+
+
+
+
+
+
+
+
+
+

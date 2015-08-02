@@ -17,6 +17,7 @@ router.get('/Busqueda/buscar', quizController.buscar);
 router.get('/Busqueda/preguntas', quizController.preguntas);
 router.get('/quizes/nueva', quizController.nueva);
 router.get('/quizes/crear', quizController.crear);
+router.post('/quizes/:quizId(\\d+)', quizController.borrar);
 
 
 module.exports = router;

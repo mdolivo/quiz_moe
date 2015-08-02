@@ -20,7 +20,7 @@
 	</header>
 	
 	<nav class="main" id="n1" role="navigation">
-		<span><a>Agregar nueva Pregunta</a></span>
+		<span><font color="#0000FF">Agregar nueva Pregunta</font></span>
 	</nav>
 	
 	<section class="main" id="sl">
@@ -61,9 +61,9 @@
 	<section class="main" id="s2">
 		<% if(errors.length){ %>
 			<span id="ErrorMsgs">
-				<center>Corregir errores:<p>
+				<center><font color="#0000FF">Corregir errores:</font><p>
 				<% for(var i in errors) {%>
-					<span><%= errors[i].message %></span><br/>
+					<span><font color="#FF0000"><%= errors[i].message %></font></span><br/>
 				<%}%>
 				</center>
 			</span>
