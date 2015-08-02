@@ -18,15 +18,34 @@
    
    <div id="page-wrap">
 	<header class="main" id="h1">
-		<h3>Lista de Preguntas</h3>
+		<h3><font color="#0000FF">Lista de Preguntas</font></h3>
 		
 	</header>
 	
 	<section class="main" id="s1">	   
-		<% var i; for (i=0; i < quizes.length; i++) { %>        
-    <tr>
-      	<a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a> <%= quizes[i].categoria %><p>
-    </tr> 
+		<% var i; for (i=0; i < quizes.length; i++) { %> 
+<center>		
+    <table><tr>
+		<td>
+      	<font color="#8FBC8F"><%= quizes[i].categoria %></font>
+		<a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
+		</td>
+		<td>
+		<form method="post" action="">
+			<button type="submit" >
+				Edit
+			</button>
+		</form>
+		</td>
+		<td>	
+		<form method="post" action="quizes/<%= quizes[i].id %>? method=delete">
+			<button type="submit" onclick="return confirm('Borrar: <%= quizes[i].pregunta %>?');">
+				Delete
+			</button>
+		</form>
+		</td>
+    </tr> </table>
+</center>
 	<% } %>
 	<br>
 	<span><center><a href="/quizes/nueva">Crear Preguntas</a></center></span>
