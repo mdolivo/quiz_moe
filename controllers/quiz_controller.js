@@ -22,14 +22,14 @@ exports.autor= function(req,res){
 //GET/quizes/
 exports.index= function(req,res){
 		models.Quiz.findAll().then(function(quizes){
-		res.render('Busqueda/lista', {quizes: quizes});
-	})
+		res.render('Busqueda/lista', {quizes: quizes, errors: []});
+	});
 };
 
 //GET/quizes/:Id
 exports.show= function(req,res){
 		models.Quiz.find(req.params.quizId).then(function(quiz) {
-		res.render('quizes/show',{quiz: req.quiz});
+		res.render('quizes/show',{quiz: req.quiz, errors: []});
 	})
 };
 
@@ -38,10 +38,10 @@ exports.answer= function(req,res){
 	models.Quiz.find(req.params.quizId).then(function(quiz){
 	if(req.query.respuesta === req.quiz.respuesta){
 		res.render('quizes/answer',
-			{quiz: quiz, respuesta:'Su respuesta es correcta'});
+			{quiz: quiz, respuesta:'Su respuesta es correcta', errors: []});
 	}else{
 		res.render('quizes/answer',
-			{quiz: req.quiz, respuesta: 'Su respuesta es incorrecta,verifique mayúsculas y miúsculas'});
+			{quiz: req.quiz, respuesta: 'Su respuesta es incorrecta,verifique mayúsculas y miúsculas', errors: []});
 	}
 	})
 };
@@ -78,23 +78,21 @@ exports.nueva = function(req, res) {
   var quiz = models.Quiz.build(
     {pregunta: " ", respuesta: " "}
   );
-
   res.render('quizes/nueva', {quiz: quiz, errors: []});
 };
 
 //POST /quizes/crear
 exports.crear = function(req, res) {
 	var quiz = models.Quiz.build( req.query.quiz );
-    var errors = quiz.validate();                                           
-    if (errors) {
+	var errors = quiz.validate(); 
+	if (errors) {
 		var i = 0;
-		var errores = new Array();                                           
+        var errores = new Array();                                           
         for (var prop in errors) errores[i++] = {message: errors[prop]};       
             res.render('quizes/nueva', {quiz: quiz, errors: errores});
-        } else {
-            quiz
-            .save({fields: ["pregunta", "respuesta", 'categoria']}).then(function(){
-					res.redirect('/quizes')
-			});
-        }
+	}else {
+		quiz                                                                 
+        .save({fields: ["pregunta", "respuesta", 'categoria']})
+        .then(function() {res.redirect('/quizes')});
+     } 	
  };

@@ -4,7 +4,7 @@ var quizController = require('../controllers/quiz_controller');
 
 //Pagina de entrada ( home page)
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Quiz Miriada X' });
+  res.render('index', { title: 'Quiz Miriada X', errors: [] });
 });
 
 router.param('quizId',quizController.load); //autoload:quizId

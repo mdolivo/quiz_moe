@@ -57,7 +57,17 @@
 	</table>
 	</form>
 	</center>
-	
+	</section>
+	<section class="main" id="s2">
+		<% if(errors.length){ %>
+			<span id="ErrorMsgs">
+				<center>Corregir errores:<p>
+				<% for(var i in errors) {%>
+					<span><%= errors[i].message %></span><br/>
+				<%}%>
+				</center>
+			</span>
+			<%}%>
 	</section>
 	</div>
   </body>

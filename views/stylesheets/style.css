@@ -44,6 +44,11 @@ nav, span{
 	margin:0px 100px 0px 100px;
 }
 
+#ErrorMsgs{
+	colo: #f61;
+	font-size:smaler;
+}
+
 a ,h6, h5{
   color: #00B7FF;
   text-align:left;
