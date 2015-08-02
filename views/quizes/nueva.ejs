@@ -20,15 +20,17 @@
 	</header>
 	
 	<nav class="main" id="n1" role="navigation">
-		<span><a href="/">Volver al inicio</a></span>
+		<span><a>Agregar nueva Pregunta</a></span>
 	</nav>
 	
 	<section class="main" id="sl">
-		<h3>Pregunta:</h3>
-		<form method="GET" action="/quizes/<%= quiz.id%>/answer">
-			<%= quiz.pregunta %><p>
-			<input type="text" name="respuesta" value="Responda aquí"/>
-			<input type="submit" value="Enviar"/>
+		<form>
+			<label for="preg" class="rem">Pregunta:</label>
+			<input type="text" id="preg" name="quiz[pregunta]" value=" quiz.pregunta"/> <p>
+			<label for="resp" class="rem">Respuesta:</label>
+			<input type="text" id="resp" name="quiz[respuesta]" value="quiz.respuesta"/> <p>
+			<a href="/"><button type="button">Cancelar</button></a>
+			<input type="submit" value="Guardar">
 		</form>
 	</section>
 	</div>

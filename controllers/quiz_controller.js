@@ -55,25 +55,33 @@ exports.buscar= function(req,res){
 
 
 //GET/Busqueda/buscar
-exports.preguntas= function(req,res){
-		var buscar= req.params.buscar;
-		if(buscar){
-			var texto=(req.params.buscar || '').replace(" ", "%");
-			models.Quiz.findAll({where:["pregunta like ?", '%'+texto+'%']/*,order:'pregunta ASC'*/}).then(function(quizes){
+exports.preguntas= function(req, res){
+	var hayBusqueda= false;
+	var resultado="incorrecto";
+	
+	if(req.query.buscar != null){
+		console.log("buscar existe" + req.query.buscar);
+		var search = req.query.buscar;
+		search= "%" + search.replace (" ","%") + "%";
+		console.log(search);
+		models.Quiz.findAll({where:["pregunta like ?",search]}).then(function(quizes){
 			res.render('Busqueda/preguntas', {quizes: quizes});
-			}).catch(function(error) { next(error);});
-		}else {
-			models.Quiz.findAll().then(function(quizes){
+		})
+	}else{
+		console.log("No hay coincidencia");
+		models.Quiz.findAll().then(function(quizes){
 			res.render('Busqueda/preguntas', {quizes: quizes});
-			}).catch(function(error) { next(error);});
-		}
+		})
+	}
 };
 
 
-//GET/Busqueda/lista
-/*exports.lista = function(req, res) {
-	models.Quiz.findAll().then(function(quizes){
-		res.render('Busqueda/lista', {quizes: quizes});
-	})
-};*/
+
+
+
+//GET/quizes/nueva
+exports.nueva= function(req,res){
+	res.render('quizes/nueva');
+};
+
 

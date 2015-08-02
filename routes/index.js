@@ -15,6 +15,7 @@ router.get('/quizes/:quizId(\\d+)', quizController.show);
 router.get('/quizes/:quizId(\\d+)/answer', quizController.answer);
 router.get('/Busqueda/buscar', quizController.buscar);
 router.get('/Busqueda/preguntas', quizController.preguntas);
+router.get('/quizes/nueva', quizController.nueva);
 
 
 
