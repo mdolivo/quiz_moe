@@ -24,14 +24,40 @@
 	</nav>
 	
 	<section class="main" id="sl">
-		<form>
-			<label for="preg" class="rem">Pregunta:</label>
-			<input type="text" id="preg" name="quiz[pregunta]" value=" quiz.pregunta"/> <p>
-			<label for="resp" class="rem">Respuesta:</label>
-			<input type="text" id="resp" name="quiz[respuesta]" value="quiz.respuesta"/> <p>
+	<center>
+	<form method="get" action="/quizes/crear">
+		<table>
+		<tr>
+		<td>
+			Pregunta:
+			<input type="text" id="pregunta" name="quiz[pregunta]" value="<%= quiz.pregunta%>"/> <p>
+			Respuesta:
+			<input type="text" id="respuesta" name="quiz[respuesta]" value="<%= quiz.respuesta%>"/> <p>
+		</td>
+		</tr>
+		<tr>
+		<td>
+			Categoria:
+			<select name="quiz[categoria]">
+				<option value="Otro;">Otro</option>
+				<option value="Geografia;">Geograf&iacute;a</option>
+				<option value="Curiosidades">Curiosidades</option>
+				<option value="Ciencia">Ciencia</option>
+				<option value="Tecnologia">Tecnología</option>
+			</select>
+		</td>
+		</tr>
+		<tr>
+		<td>
+			<br>
 			<a href="/"><button type="button">Cancelar</button></a>
 			<input type="submit" value="Guardar">
-		</form>
+		</td>
+		</tr>
+	</table>
+	</form>
+	</center>
+	
 	</section>
 	</div>
   </body>

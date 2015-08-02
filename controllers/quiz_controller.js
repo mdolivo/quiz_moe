@@ -33,8 +33,6 @@ exports.show= function(req,res){
 	})
 };
 
-
-
 //GET/quizes/:id/answer
 exports.answer= function(req,res){
 	models.Quiz.find(req.params.quizId).then(function(quiz){
@@ -75,13 +73,28 @@ exports.preguntas= function(req, res){
 	}
 };
 
-
-
-
-
 //GET/quizes/nueva
-exports.nueva= function(req,res){
-	res.render('quizes/nueva');
+exports.nueva = function(req, res) {
+  var quiz = models.Quiz.build(
+    {pregunta: " ", respuesta: " "}
+  );
+
+  res.render('quizes/nueva', {quiz: quiz, errors: []});
 };
 
-
+//POST /quizes/crear
+exports.crear = function(req, res) {
+	var quiz = models.Quiz.build( req.query.quiz );
+    var errors = quiz.validate();                                           
+    if (errors) {
+		var i = 0;
+		var errores = new Array();                                           
+        for (var prop in errors) errores[i++] = {message: errors[prop]};       
+            res.render('quizes/nueva', {quiz: quiz, errors: errores});
+        } else {
+            quiz
+            .save({fields: ["pregunta", "respuesta", 'categoria']}).then(function(){
+					res.redirect('/quizes')
+			});
+        }
+ };
