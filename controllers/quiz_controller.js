@@ -92,10 +92,50 @@ exports.crear = function(req, res) {
             res.render('quizes/nueva', {quiz: quiz, errors: errores});
 	}else {
 		quiz                                                                 
-        .save({fields: ["pregunta", "respuesta", 'categoria']})
+        .save({fields: ["pregunta", "respuesta", "categoria"]})
         .then(function() {res.redirect('/quizes')});
      } 	
  };
+ 
+ //GET /quizes/:id/editar
+exports.editar = function(req, res) {
+	var quiz = req.quiz;
+	res.render('quizes/editar', {quiz: quiz, errors: []});
+};
+
+ //GET /quizes/:id
+/*exports.actualizar = function(req, res) {
+	req.quiz.pregunta = req.query.quiz.pregunta;
+	req.quiz.respuesta = req.query.quiz.respuesta;
+	req.quiz.validate().then(function(err){
+		if(err){
+			res.render('quizes/editar', {quiz: req.quiz, errors: err.errors});
+		}else{
+			req.quiz
+			.save({fields: ["pregunta", "respuesta"]})
+			.then(function() {res.redirect('/')});
+		}
+	}	
+	);	
+};*/
+ exports.actualizar = function(req, res) {
+	var quiz = models.Quiz.build( req.query.quiz );
+	var errors = quiz.validate(); 
+	if (errors) {
+		var i = 0;
+        var errores = new Array();                                           
+        for (var prop in errors) errores[i++] = {message: errors[prop]};       
+            res.render('quizes/editar', {quiz: quiz, errors: errores});
+	}else {
+		quiz                                                                 
+        .save({fields: ["pregunta", "respuesta"]})
+        .then(function() {res.redirect('/')});
+     } 	
+ };
+
+ 
+ 
+ 
  
  //DELETE / quiz/:id
 exports.borrar = function(req, res) {

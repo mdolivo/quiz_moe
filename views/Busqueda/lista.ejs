@@ -22,31 +22,39 @@
 		
 	</header>
 	
-	<section class="main" id="s1">	   
-		<% var i; for (i=0; i < quizes.length; i++) { %> 
+	<section class="main" id="s1">	 
 <center>		
-    <table><tr>
+    <table border="1" width="500">
+	<tr>
+		<th align="center">Categor&iacute;a</th>
+		<th align="center">Pregunta</th>
+		<th align="center" colspan="2">Acci&oacute;n</th>
+
+	</tr>
+		<% var i; for (i=0; i < quizes.length; i++) { %> 
+	
+		<td><font color="#8FBC8F"><%= quizes[i].categoria %></font></td>
+		<td><a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a></td>
+	
 		<td>
-      	<font color="#8FBC8F"><%= quizes[i].categoria %></font>
-		<a href="/quizes/<%= quizes[i].id %>"><%= quizes[i].pregunta %></a>
-		</td>
-		<td>
-		<form method="post" action="">
-			<button type="submit" >
+		<form method="get" action="/quizes/<%= quizes[i].id %>/editar">
+			<button type="submit">
 				Edit
 			</button>
-		</form>
+		</form>	
 		</td>
-		<td>	
-		<form method="post" action="quizes/<%= quizes[i].id %>? method=delete">
+		<td>
+		<form method="post" action="quizes/<%= quizes[i].id %>">
 			<button type="submit" onclick="return confirm('Borrar: <%= quizes[i].pregunta %>?');">
 				Delete
 			</button>
 		</form>
 		</td>
-    </tr> </table>
-</center>
+    </tr>
 	<% } %>
+	</table>
+</center>
+	
 	<br>
 	<span><center><a href="/quizes/nueva">Crear Preguntas</a></center></span>
 	</section>
