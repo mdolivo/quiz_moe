@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<meta charset="utf-8">
+    <title>MOE Quiz</title>
+    <link rel='stylesheet' type='text/css' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <center>
+     <p>
+	 <h2>
+		Bienvenido a Miriada X
+	</h2>
+		El portal donde puedes crear tus propios juegos!!!
+	</p>
+   </center>
+  <div id="page-wrap">
+	<header class="main" id="h1">
+		<h3>Quiz: El juego de las preguntas</h3>
+	</header>
+	
+	<nav class="main" id="n1" role="navigation">
+		<span><font color="#0000FF">Agregar un Comentario</font></span>
+	</nav>
+	
+	<section class="main" id="sl">
+	<center>
+	<form method="post" action="/quizes/<%=quizid%>/comentarios/" >  
+		<table>
+		<tr>
+		<td>
+			Comentarios:
+			<input type="text" id="comment" name="comment[texto]" value="mi commentario"/> <p> <p>
+		</td>
+		</tr>
+		<tr>
+		<td>
+			<br>
+			<a href="/"><button type="button">Cancelar</button></a>
+			<input type="submit" value="Enviar">
+		</td>
+		</tr>
+	</table>
+	</form>
+	</center>
+	</section>
+	<section class="main" id="s2">
+		<% if(errors.length){ %>
+			<span id="ErrorMsgs">
+				<center><font color="#0000FF">Corregir errores:</font><p>
+				<% for(var i in errors) {%>
+					<span><font color="#FF0000"><%= errors.message %></font></span><br/>
+				<%}%>
+				</center>
+			</span>
+			<%}%>
+	</section>
+	</div>
+  </body>
+</html>

@@ -2,8 +2,10 @@ var models = require('../models/models.js');
 
 //Autoload
 exports.load = function(req, res, next, quizId){
-		models.Quiz.find(quizId).then(
-			function(quiz){
+		models.Quiz.find({
+					where:{id: Number(quizId)}//,
+					//include: [{model:models.comment}]
+				}).then(function(quiz){
 				if(quiz){
 					req.quiz= quiz;
 					next();
@@ -28,10 +30,11 @@ exports.index= function(req,res){
 
 //GET/quizes/:Id
 exports.show= function(req,res){
-		models.Quiz.find(req.params.quizId).then(function(quiz) {
+		models.Quiz.find(req.params.quizId).then(function(quiz) {//estaba find solo
 		res.render('quizes/show',{quiz: req.quiz, errors: []});
 	})
 };
+
 
 //GET/quizes/:id/answer
 exports.answer= function(req,res){

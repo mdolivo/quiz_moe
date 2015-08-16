@@ -25,11 +25,18 @@
 	
 	<section class="main" id="sl">
 		<h3>Pregunta:</h3>
-		<form method="GET" action="/quizes/<%= quiz.id%>/answer">
+		<form method="get" action="/quizes/<%= quiz.id%>/answer">
 			<%= quiz.pregunta %><p>
 			<input type="text" name="respuesta" value="Responda aquí"/>
 			<input type="submit" value="Enviar"/>
 		</form>
+		
+
+		<a href="/quizes/<%= quiz.id%>/comentarios/nuevo">Nuevo Comentario</a></p>
+			Comentarios:
+			<%for(index in quiz.Comments){%>
+					<p>- <%=quiz.Comments[index].texto%></p>
+			<%}%>
 	</section>
 	</div>
   </body>
